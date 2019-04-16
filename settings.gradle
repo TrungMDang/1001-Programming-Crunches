@@ -1,0 +1,4 @@
+rootProject.name = '1001ProgrammingCrunches'
+include 'practice-geeksforgeeks'
+findProject(':practice-geeksforgeeks')?.name = '1001ProgrammingCrunches'
+
