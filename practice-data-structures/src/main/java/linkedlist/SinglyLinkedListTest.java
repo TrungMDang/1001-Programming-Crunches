@@ -3,15 +3,25 @@ package linkedlist;
 public class SinglyLinkedListTest {
 
     public static void main(String[] args) {
-        testInsertStart();
+//        testInsertStart();
+//        System.out.println("***********************************");
+//        testInsert();
+//        System.out.println("***********************************");
+//        testInsertAtIndex();
+//        System.out.println("***********************************");
+//        testDelete();
+//        System.out.println("***********************************");
+//        testDeleteAtIndex();
+//        System.out.println("***********************************");
+//        testDeleteList();
+//        System.out.println("***********************************");
+//        testGetLengthIterative();
+//        System.out.println("***********************************");
+//        testGetLengthRecursive();
         System.out.println("***********************************");
-        testInsert();
+        testContainIterative();
         System.out.println("***********************************");
-        testInsertAtIndex();
-        System.out.println("***********************************");
-        testDelete();
-        System.out.println("***********************************");
-        testDeleteAtIndex();
+        testContainRecursive();
     }
 
     private static void testInsertStart() {
@@ -157,6 +167,54 @@ public class SinglyLinkedListTest {
 
     }
 
+    private static void testDeleteList() {
+        System.out.println("Testing deletion of entire list:");
+        SinglyLinkedList list = createRandomListForTest();
+        System.out.println("List initial size: " + list.getSize());
+        System.out.println("List: " + list.toString());
+        list.deleteList();
+        System.out.println("List size after deleting list: " + list.getSize());
+        System.out.println("List: " + list.toString());
+
+    }
+
+    private static void testGetLengthIterative() {
+        System.out.println("Testing get list length iterative:");
+        SinglyLinkedList list = createRandomListForTest();
+        System.out.println("Initial list size: " + list.getSize());
+        System.out.println("Length of list iteratively: " + list.listSizeIterative());
+        SinglyLinkedList list2 = new SinglyLinkedList();
+        System.out.println("Initial list 2 size: " + list2.getSize());
+        System.out.println("Length of list 2 iteratively: " + list2.listSizeIterative());
+    }
+
+    private static void testGetLengthRecursive() {
+        System.out.println("Testing get list length recursive:");
+        SinglyLinkedList list = createRandomListForTest();
+        System.out.println("Initial list size: " + list.getSize());
+        System.out.println("Length of list recursively: " + list.listSizeRecursive());
+        SinglyLinkedList list2 = new SinglyLinkedList();
+        System.out.println("Initial list 2 size: " + list2.getSize());
+        System.out.println("Length of list 2 recursively: " + list2.listSizeRecursive());
+    }
+
+    private static void testContainIterative() {
+        System.out.println("Testing contain iteratively");
+        SinglyLinkedList list = createDeterminedListForTest();
+        System.out.println("List: " + list);
+        System.out.println("Does list have 5: " + list.containIterative(5));
+        System.out.println("Does list have -10: " + list.containIterative(-10));
+        System.out.println("Does list have 20: " + list.containIterative(20));
+    }
+
+    private static void testContainRecursive() {
+        System.out.println("Testing contain recursively");
+        SinglyLinkedList list = createDeterminedListForTest();
+        System.out.println("List: " + list);
+        System.out.println("Does list have 4: " + list.containRecursive(4));
+        System.out.println("Does list have -5: " + list.containRecursive(-5));
+        System.out.println("Does list have 15: " + list.containRecursive(15));
+    }
 
     private static SinglyLinkedList createRandomListForTest() {
         SinglyLinkedList list = new SinglyLinkedList();

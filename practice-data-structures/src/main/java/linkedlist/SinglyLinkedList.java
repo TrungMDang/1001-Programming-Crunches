@@ -120,6 +120,65 @@ public class SinglyLinkedList {
     public SinglyNode reverse() {
         return head;
     }
+	
+	
+	public void deleteList() {
+		this.head = null;
+		this.tail = null;
+		this.size = 0;
+	}
+	
+	public int listSizeIterative() {
+		SinglyNode curr = head;
+		int count = 0;
+		while (curr != null) {
+			count++;
+			curr = curr.next;
+		}
+		return count;
+	}
+	
+	public int listSizeRecursive() {
+		return recursiveGetSize(head, 0);
+		
+	}
+	
+	private int recursiveGetSize(SinglyNode curr, int count) {
+		if (curr == null) {
+			return 0;
+		} else {
+			return count + recursiveGetSize(curr.next, count++);
+		}
+	}
+
+	public boolean containIterative(int x) {
+		SinglyNode curr = head;
+		while (curr != null) {
+			if (curr.data == x) {
+				return true;
+			}
+			curr = curr.next;
+		}
+		return false;
+	}
+	
+	
+	public boolean containRecursive(int x) {
+		return containRecursiveHelper(head, x);
+	}
+	
+	private boolean containRecursiveHelper(SinglyNode node, int x) {
+		SinglyNode curr = node;
+		if (curr != null) {
+			if (curr.data == x) {
+				return true;
+			} else {
+				return containRecursiveHelper(curr.next, x);
+			}
+		} else {
+			return false;
+		}
+	}
 
     @Override
     public String toString() {
