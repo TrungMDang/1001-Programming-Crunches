@@ -233,6 +233,26 @@ public class SinglyLinkedList {
 			}
 		}
 	}
+	
+	public int getMiddleNode() {
+		SinglyNode fast = head;
+		SinglyNode slow = head;
+		while (fast != null && slow != null) {
+			fast = fast.next;
+			if (fast != null ) {
+				slow = slow.next;
+				if (fast.next != null) {
+					fast = fast.next;
+				}
+			}
+    	}
+    	if (slow != null) {
+    	    return slow.data;
+    	} else {
+    	    return -1;
+    	}
+	}
+	
 
     @Override
     public String toString() {

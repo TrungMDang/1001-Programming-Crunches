@@ -3,32 +3,33 @@ package linkedlist;
 public class SinglyLinkedListTest {
 
     public static void main(String[] args) {
-        testInsertStart();
+//        testInsertStart();
+//        System.out.println("***********************************");
+//        testInsert();
+//        System.out.println("***********************************");
+//        testInsertAtIndex();
+//        System.out.println("***********************************");
+//        testDelete();
+//        System.out.println("***********************************");
+//        testDeleteAtIndex();
+//        System.out.println("***********************************");
+//        testDeleteList();
+//        System.out.println("***********************************");
+//        testGetLengthIterative();
+//        System.out.println("***********************************");
+//        testGetLengthRecursive();
+//        System.out.println("***********************************");
+//        testContainIterative();
+//        System.out.println("***********************************");
+//        testContainRecursive();
+//        System.out.println("***********************************");
+//        testGetNthNode();
+//        System.out.println("***********************************");
+//        testGetNthNodeFromLast();
+//        System.out.println("***********************************");
+//        testGetNthNodeFromLastUsing2Pointers();
         System.out.println("***********************************");
-        testInsert();
-        System.out.println("***********************************");
-        testInsertAtIndex();
-        System.out.println("***********************************");
-        testDelete();
-        System.out.println("***********************************");
-        testDeleteAtIndex();
-        System.out.println("***********************************");
-        testDeleteList();
-        System.out.println("***********************************");
-        testGetLengthIterative();
-        System.out.println("***********************************");
-        testGetLengthRecursive();
-        System.out.println("***********************************");
-        testContainIterative();
-        System.out.println("***********************************");
-        testContainRecursive();
-        System.out.println("***********************************");
-        testGetNthNode();
-        System.out.println("***********************************");
-        testGetNthNodeFromLast();
-        System.out.println("***********************************");
-        testGetNthNodeFromLastUsing2Pointers();
-
+        testGetMiddleNode();
     }
 
     private static void testInsertStart() {
@@ -256,8 +257,19 @@ public class SinglyLinkedListTest {
         System.out.println("Get node at index 1 more than size of list: " + list.getNthNodeFromLastUsing2Pointers(list.getSize() + 1));
     }
 
-
-
+    private static void testGetMiddleNode() {
+        System.out.println("Testing get middle node of linked list:");
+        SinglyLinkedList list = createRandomListForTest();
+        System.out.println("Initial list: " + list.toString() + " - Size: " + list.getSize());
+        System.out.println("Get middle node: " + list.getMiddleNode());
+        SinglyLinkedList list2 = createRandomListForTest();
+        list2.insert(11);
+        System.out.println("Initial list: " + list2.toString() + " - Size: " + list2.getSize());
+        System.out.println("Get middle node: " + list2.getMiddleNode());
+        SinglyLinkedList list3 = new SinglyLinkedList();
+        System.out.println("Initial list: " + list3.toString() + " - Size: " + list3.getSize());
+        System.out.println("Get middle node: " + list3.getMiddleNode());
+       }
 
 
     private static SinglyLinkedList createRandomListForTest() {
