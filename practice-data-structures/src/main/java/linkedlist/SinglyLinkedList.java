@@ -179,6 +179,60 @@ public class SinglyLinkedList {
 			return false;
 		}
 	}
+	
+	public int getNthNode(int index) {
+		SinglyNode curr = head;
+		index--; //turn 1-based index into 0-based index
+		while (curr != null && index > 0) {
+		   curr = curr.next;
+		   index--;
+		}
+		if (curr != null && index == 0) {
+		   return curr.data;
+		}
+		return -1;
+	}
+	
+	public int getNthNodeFromLast(int index) {
+		if (index > size) {
+			return -1;
+		} else {
+			SinglyNode curr = head;
+			int nodesToTravel = size - index;
+			while (nodesToTravel > 0 && curr != null) {
+				nodesToTravel--;
+				curr = curr.next;
+			}
+			if (curr != null) {
+				return curr.data;
+			} else {
+				return -1;
+			}
+		}
+		
+	}
+	
+	public int getNthNodeFromLastUsing2Pointers(int index) {
+		if (index > size) {
+			return -1;
+		} else {
+			SinglyNode fast = head;
+			SinglyNode slow = head;
+			while (index > 0 && fast != null) {
+				index--;
+				fast = fast.next;
+			}
+			while (fast != null && slow != null) {
+				fast = fast.next;
+				slow = slow.next;
+			}
+			if (slow != null) {
+				return slow.data;
+			} else {
+				return -1;
+			}
+		}
+	}
 
     @Override
     public String toString() {

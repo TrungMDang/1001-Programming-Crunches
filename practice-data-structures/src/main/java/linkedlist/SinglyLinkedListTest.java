@@ -3,25 +3,32 @@ package linkedlist;
 public class SinglyLinkedListTest {
 
     public static void main(String[] args) {
-//        testInsertStart();
-//        System.out.println("***********************************");
-//        testInsert();
-//        System.out.println("***********************************");
-//        testInsertAtIndex();
-//        System.out.println("***********************************");
-//        testDelete();
-//        System.out.println("***********************************");
-//        testDeleteAtIndex();
-//        System.out.println("***********************************");
-//        testDeleteList();
-//        System.out.println("***********************************");
-//        testGetLengthIterative();
-//        System.out.println("***********************************");
-//        testGetLengthRecursive();
+        testInsertStart();
+        System.out.println("***********************************");
+        testInsert();
+        System.out.println("***********************************");
+        testInsertAtIndex();
+        System.out.println("***********************************");
+        testDelete();
+        System.out.println("***********************************");
+        testDeleteAtIndex();
+        System.out.println("***********************************");
+        testDeleteList();
+        System.out.println("***********************************");
+        testGetLengthIterative();
+        System.out.println("***********************************");
+        testGetLengthRecursive();
         System.out.println("***********************************");
         testContainIterative();
         System.out.println("***********************************");
         testContainRecursive();
+        System.out.println("***********************************");
+        testGetNthNode();
+        System.out.println("***********************************");
+        testGetNthNodeFromLast();
+        System.out.println("***********************************");
+        testGetNthNodeFromLastUsing2Pointers();
+
     }
 
     private static void testInsertStart() {
@@ -215,6 +222,43 @@ public class SinglyLinkedListTest {
         System.out.println("Does list have -5: " + list.containRecursive(-5));
         System.out.println("Does list have 15: " + list.containRecursive(15));
     }
+
+    private static void testGetNthNode() {
+        System.out.println("Testing get Nth node from list:");
+        SinglyLinkedList list = createRandomListForTest();
+        System.out.println("Initial list: " + list.toString() + " - Size: " + list.getSize());
+        System.out.println("Get node at index -1: " + list.getNthNode(-1));
+        System.out.println("Get node at index equals size of list: " + list.getNthNode(list.getSize()));
+        System.out.println("Get node at index 4: " + list.getNthNode(4));
+        System.out.println("Get node at index 1 less than size of list: " + list.getNthNode(list.getSize() - 1));
+        System.out.println("Get node at index 1 more than size of list: " + list.getNthNode(list.getSize() + 1));
+    }
+
+    private static void testGetNthNodeFromLast() {
+        System.out.println("Testing get Nth node counting from end of list using list size:");
+        SinglyLinkedList list = createRandomListForTest();
+        System.out.println("Initial list: " + list.toString() + " - Size: " + list.getSize());
+        System.out.println("Get node at index -1: " + list.getNthNodeFromLast(-1));
+        System.out.println("Get node at index equals size of list: " + list.getNthNodeFromLast(list.getSize()));
+        System.out.println("Get node at index 4: " + list.getNthNodeFromLast(4));
+        System.out.println("Get node at index 1 less than size of list: " + list.getNthNodeFromLast(list.getSize() - 1));
+        System.out.println("Get node at index 1 more than size of list: " + list.getNthNodeFromLast(list.getSize() + 1));
+    }
+
+    private static void testGetNthNodeFromLastUsing2Pointers() {
+        System.out.println("Testing get Nth node counting from end of list using 2 pointers:");
+        SinglyLinkedList list = createRandomListForTest();
+        System.out.println("Initial list: " + list.toString() + " - Size: " + list.getSize());
+        System.out.println("Get node at index -1: " + list.getNthNodeFromLastUsing2Pointers(-1));
+        System.out.println("Get node at index equals size of list: " + list.getNthNodeFromLastUsing2Pointers(list.getSize()));
+        System.out.println("Get node at index 4: " + list.getNthNodeFromLastUsing2Pointers(4));
+        System.out.println("Get node at index 1 less than size of list: " + list.getNthNodeFromLastUsing2Pointers(list.getSize() - 1));
+        System.out.println("Get node at index 1 more than size of list: " + list.getNthNodeFromLastUsing2Pointers(list.getSize() + 1));
+    }
+
+
+
+
 
     private static SinglyLinkedList createRandomListForTest() {
         SinglyLinkedList list = new SinglyLinkedList();
