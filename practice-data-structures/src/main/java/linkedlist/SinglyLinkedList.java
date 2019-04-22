@@ -317,6 +317,30 @@ public class SinglyLinkedList {
 		}
 		return 0;
 	}
+	
+	public int countNodesInLoop() {
+		SinglyNode slow = head;
+		SinglyNode fast = head;
+		while (fast != null && slow != null) {
+			fast = fast.next;
+			if (fast != null && fast.next != null) {
+				fast = fast.next;
+			}
+			if (fast == slow) {
+				int count = 0;
+				while (slow != null) {
+					count++;
+					slow = slow.next;
+					if (slow == fast) {
+						return count;
+					}
+				}
+				return 0;
+			}
+			slow = slow.next;
+		}
+		return 0;
+	}
 
     @Override
     public String toString() {
