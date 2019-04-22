@@ -193,6 +193,21 @@ public class SinglyLinkedList {
 		return -1;
 	}
 	
+	public SinglyNode getNthNode(int index, boolean getNodeOrNot) {
+		if (getNodeOrNot) {
+			SinglyNode curr = head;
+			index--; //turn 1-based index into 0-based index
+			while (curr != null && index > 0) {
+			   curr = curr.next;
+			   index--;
+			}
+			if (curr != null && index == 0) {
+			   return curr;
+			}
+		}
+		return null;
+	}
+	
 	public int getNthNodeFromLast(int index) {
 		if (index > size) {
 			return -1;
@@ -211,6 +226,28 @@ public class SinglyLinkedList {
 		}
 		
 	}
+	
+	public SinglyNode getNthNodeFromLast(int index, boolean getNode) {
+		if (getNode) {
+			if (index > size) {
+				return null;
+			} else {
+				SinglyNode curr = head;
+				int nodesToTravel = size - index;
+				while (nodesToTravel > 0 && curr != null) {
+					nodesToTravel--;
+					curr = curr.next;
+				}
+				if (curr != null) {
+					return curr;
+				} else {
+					return null;
+				}
+			}
+		}
+		return null;	
+	}
+	
 	
 	public int getNthNodeFromLastUsing2Pointers(int index) {
 		if (index > size) {
@@ -253,21 +290,52 @@ public class SinglyLinkedList {
     	}
 	}
 	
+	public int frequency(int data) {
+		SinglyNode curr = head;
+		int count = 0;
+		while (curr != null) {
+			if (curr.data == data) {
+				count++;
+			}
+			curr = curr.next;
+		}
+		return count;
+	}
+	
+	public int isLooped() {
+		SinglyNode slow = head;
+		SinglyNode fast = head;
+		while (fast != null && slow != null) {
+			fast = fast.next;
+			if (fast != null && fast.next != null) {
+				fast = fast.next;
+			}
+			if (fast == slow) {
+				return 1;
+			}
+			slow = slow.next;
+		}
+		return 0;
+	}
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        SinglyNode curr = head;
-        while (curr != null) {
-            sb.append(curr.data);
-            if (curr.next != null) {
-                sb.append(", ");
-            }
-            curr = curr.next;
-        }
-        sb.append("]");
-        return sb.toString();
+		if (isLooped() == 1) {
+			return "Looped";
+		} else {
+			StringBuilder sb = new StringBuilder();
+			sb.append("[");
+			SinglyNode curr = head;
+			while (curr != null) {
+				sb.append(curr.data);
+				if (curr.next != null) {
+					sb.append(", ");
+				}
+				curr = curr.next;
+			}
+			sb.append("]");
+			return sb.toString();
+		}
     }
 
 }

@@ -4,32 +4,38 @@ public class SinglyLinkedListTest {
 
     public static void main(String[] args) {
 //        testInsertStart();
-//        System.out.println("***********************************");
+//        System.out.println("1 - ***********************************");
 //        testInsert();
-//        System.out.println("***********************************");
+//        System.out.println("2 - ***********************************");
 //        testInsertAtIndex();
-//        System.out.println("***********************************");
+//        System.out.println("3 - ***********************************");
 //        testDelete();
-//        System.out.println("***********************************");
+//        System.out.println("4 - ***********************************");
 //        testDeleteAtIndex();
-//        System.out.println("***********************************");
+//        System.out.println("5 - ***********************************");
 //        testDeleteList();
-//        System.out.println("***********************************");
+//        System.out.println("6 - ***********************************");
 //        testGetLengthIterative();
-//        System.out.println("***********************************");
+//        System.out.println("7 - ***********************************");
 //        testGetLengthRecursive();
-//        System.out.println("***********************************");
+//        System.out.println("8 - ***********************************");
 //        testContainIterative();
-//        System.out.println("***********************************");
+//        System.out.println("9 - ***********************************");
 //        testContainRecursive();
-//        System.out.println("***********************************");
+//        System.out.println("10 - ***********************************");
 //        testGetNthNode();
-//        System.out.println("***********************************");
+//        System.out.println("11 - ***********************************");
 //        testGetNthNodeFromLast();
-//        System.out.println("***********************************");
+//        System.out.println("12 - ***********************************");
 //        testGetNthNodeFromLastUsing2Pointers();
-        System.out.println("***********************************");
-        testGetMiddleNode();
+//        System.out.println("13 - ***********************************");
+//        testGetMiddleNode();
+//        System.out.println("14 - ***********************************");
+//        testFrequency();
+//        System.out.println("15 - ***********************************");
+//        testIsLooped();
+        System.out.println("16 - ***********************************");
+        testIsLooped();
     }
 
     private static void testInsertStart() {
@@ -271,6 +277,33 @@ public class SinglyLinkedListTest {
         System.out.println("Get middle node: " + list3.getMiddleNode());
        }
 
+    private static void testFrequency() {
+        System.out.println("Testing frequency of a node in singly linked list: ");
+        SinglyLinkedList list = createDeterminedListForTest();
+        list.insert(-1, 5);
+        list.insert(-1, 9);
+        list.insert(-1, 3);
+        System.out.println("Initial list: " + list.toString() + " - Size: " + list.getSize());
+        System.out.println("Get frequency of -1: " + list.frequency(-1));
+        SinglyLinkedList listEmpty = new SinglyLinkedList();
+        System.out.println("Initial list: " + listEmpty.toString() + " - Size: " + listEmpty.getSize());
+        System.out.println("Get frequency of 0: " + listEmpty.frequency(0));
+    }
+
+    private static void testIsLooped() {
+        System.out.println("Testing if singly linked list is looped: ");
+        SinglyLinkedList list = createRandomListForTest();
+        SinglyNode node = list.getNthNode(7, true);
+        SinglyNode last = list.getNthNodeFromLast(list.getSize(), true);
+        if (node != null && last != null) {
+            node.next = last;
+        }
+        System.out.println("Initial list: " + list.toString() + " - Size: " + list.getSize());
+        System.out.println("Is singly linked list looped: " + list.isLooped());
+        SinglyLinkedList listRand = createRandomListForTest();
+        System.out.println("Initial list: " + listRand.toString() + " - Size: " + listRand.getSize());
+        System.out.println("Is singly linked list looped: " + listRand.isLooped());
+    }
 
     private static SinglyLinkedList createRandomListForTest() {
         SinglyLinkedList list = new SinglyLinkedList();
